@@ -655,7 +655,7 @@ In a practical sense, this same approach is used by all applications that rely o
 
 4. **Timestamp Attachment**: zkLocus also allows for the creation of a proof attesting to the validity of a timestamp interval. This is achieved through the `TimestampIntervalProviderCircuit`, which outputs a `TimestampInterval`. The `TimestampInterval` itself is the public output of a Zero-Knowledge proof, and that proof is passed as a private input to the circuit verifying if that timestamp interval is valid.
 
-The simplest possible implementation, which returns the GeoPoint that was passed to it as a public input is as follows:
+The simplest possible implementation, which returns the TimestampInterval that was passed to it as a public input is as follows:
 
 ```typescript
 TimestampIntervalProviderCircuit = ZkProgram({
