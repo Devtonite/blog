@@ -2,7 +2,7 @@
 author: Illya Gerasymchuk
 pubDatetime: 2023-12-03T20:08:00Z
 title: Recursive zkSNARK Proof as a Private Input - What Is Visible To The Verifier?
-postSlug: zk-snarks-recursive-proof-private-intput-visibility
+postSlug: zk-snarks-recursive-proof-private-input-visibility
 featured: false
 draft: false
 tags:
@@ -10,7 +10,7 @@ tags:
   - o1js
   - zkLocus
   - zero-knowledge
-description: "In this blog post, we will explore the dynamic intersection of blockchain, privacy, and cryptography, focusing on the pivotal role of zero-knowledge proofs, especially zkSNARKs and their recursive variations. These innovative technologies are revolutionizing our approach to digital privacy and authenticity. Here, we delve into their practical applications, discussing their significance in Zero-Knowledge circuits, the Mina blockchain, and the O1JS framework. Additionally, we will examine how recursive zkSNARKs fuel applications like zkLocus, enabling users to authenticate and share their location while preserving privacy. By the end of this post, you'll have a comprehensive understanding of Zero-Knowledge applications, Zero-Knowledge ciructis, zkSNARKs, recursive zkSNARKs, and what exactly is visible to the verifier when a recursive proof is passed as a private input in a zkSNARKs circuit."
+description: "In this blog post, we will explore the dynamic intersection of blockchain, privacy, and cryptography, focusing on the pivotal role of zero-knowledge proofs, especially zkSNARKs and their recursive variations. These innovative technologies are revolutionizing our approach to digital privacy and authenticity. Here, we delve into their practical applications, discussing their significance in Zero-Knowledge circuits, the Mina blockchain, and the O1JS framework. Additionally, we will examine how recursive zkSNARKs fuel applications like zkLocus, enabling users to authenticate and share their location while preserving privacy. By the end of this post, you'll have a comprehensive understanding of Zero-Knowledge applications, Zero-Knowledge circuits, zkSNARKs, recursive zkSNARKs, and what exactly is visible to the verifier when a recursive proof is passed as a private input in a zkSNARKs circuit."
 ---
 
 <div style="text-align:center; max-width:97%;">
@@ -33,7 +33,7 @@ Have you ever wondered about the extent of visibility a verifier has in a zkSNAR
 - Can the verifier see the public input of the recursive proof?
 - Can a circuit receiving a recursive proof as input access all the data used in the inner proof?
 
-Understanding recursive zkSNARKs means understading and correctly answering these questios. This knowledge forms the bedrock of understanding how recursive zkSNARKs proofs operate within the broader landscape of zero-knowledge proofs, influencing both the design and practical application of these systems. The goal of this blog post is to make the answer to each one of these questions very clear.
+Understanding recursive zkSNARKs means understanding and correctly answering these questions. This knowledge forms the bedrock of understanding how recursive zkSNARKs proofs operate within the broader landscape of zero-knowledge proofs, influencing both the design and practical application of these systems. The goal of this blog post is to make the answer to each one of these questions very clear.
 
 # Introduction & Motivation
 
@@ -41,12 +41,12 @@ Understanding recursive zkSNARKs means understading and correctly answering thes
    <img src="../../assets/blog/recursive-zksnarks-explained/zkLocus-3.png" alt="zkLocus mascot" style="max-width:100%; max-height:auto;border:none;">
 </div>
 
-The Zero-Knowledge application development field is unboubtably the most disruptive and groundbreaking area of work not only in sofware engineering, but in the technoglogy field as a whole. While Zero-Knowldge technonolgy has been around since the 1980's, its usage only became practical for real-world application with the advent of zkSNARKs in 2010, and it's only in the last year that the development of Zero-Knowledge circuits and applications by non-mathematicians, academics, and cryptographers has become possible. This is thanks to the development of Zero-Knowledge application frameworks, such as [O1JS](https://docs.minaprotocol.com/zkapps/o1js), which provides a clean and easy to use abstration for the creation of zero-knowneldge circuts. In this blog post, we will use O1JS to build a calculator application using recursive zkSNARKs, and analyze what exactly is visible to the verifier when a recursive proof is passed as a private input in a zkSNARKS circuit.
+The Zero-Knowledge application development field is undoubtably the most disruptive and groundbreaking area of work not only in software engineering, but in the technology field as a whole. While Zero-Knowledge technology has been around since the 1980's, its usage only became practical for real-world application with the advent of zkSNARKs in 2010, and it's only in the last year that the development of Zero-Knowledge circuits and applications by non-mathematicians, academics, and cryptographers has become possible. This is thanks to the development of Zero-Knowledge application frameworks, such as [O1JS](https://docs.minaprotocol.com/zkapps/o1js), which provides a clean and easy to use abstraction for the creation of zero-knowledge circuits. In this blog post, we will use O1JS to build a calculator application using recursive zkSNARKs, and analyze what exactly is visible to the verifier when a recursive proof is passed as a private input in a zkSNARKS circuit.
 
 ## The Zero-Knowledge Community
 
 The community of developers focusing on the development of Zero-Knowledge applications is not very large, but it is very dedicated to
-the cause. While there is a lot of work and interest, there is a lack of depper understanding, due to the lack of avaialable information.
+the cause. While there is a lot of work and interest, there is a lack of deeper understanding, due to the lack of available information.
 Zero-Knowledge is the closet thing that we have to magic in the area of secure computing, and while that magic is open-source, it
 is necessary to understand it in order to use it correctly. Given this, the sharing of knowledge is essential for the development of the field.
 
@@ -58,11 +58,11 @@ is necessary to understand it in order to use it correctly. Given this, the shar
 </a>
 </div>
 
-I am curretly developing on a Zero-Knowledge application called [zkLocus](https://zklocus.dev). zkLocus enables users to authenticate and share their geographical location while preserving their privacy. By using recursive zkSNARKs, users can verify being within a certain region, following a certain path, or being outside a specified area, without revealing their precise coordinates.
+I am currently developing on a Zero-Knowledge application called [zkLocus](https://zklocus.dev). zkLocus enables users to authenticate and share their geographical location while preserving their privacy. By using recursive zkSNARKs, users can verify being within a certain region, following a certain path, or being outside a specified area, without revealing their precise coordinates.
 
 You can find more about zkLocus at [zklocus.dev](https://zklocus.dev). I have also written an essay on zkLocus, explaining its value, features, and use-cases. You can read it at [zkLocus: Authenticated Private Geolocation Off & On-Chain](/blog/posts/zklocus-authenticated-geolocation-blockchain-zk/).
 
-As a part of an effort to contribute to the expansion of knowledge in the field, I am commiting to writing a series of blog posts on the topic of Zero-Knowledge applications. In them, I will share my learnings and insights from my work on zkLocus, and I aim to explain the concepts in a way that is easy to understand for anyone in this field. This includes
+As a part of an effort to contribute to the expansion of knowledge in the field, I am committing to writing a series of blog posts on the topic of Zero-Knowledge applications. In them, I will share my learnings and insights from my work on zkLocus, and I aim to explain the concepts in a way that is easy to understand for anyone in this field. This includes
 developers, researchers, entrepreneurs, and other enthusiasts.
 
 # Zero-Knowledge Applications
@@ -70,10 +70,10 @@ developers, researchers, entrepreneurs, and other enthusiasts.
 Before we dive into the topic of recursive zkSNARKs, it is important to understand what exactly Zero-Knowledge
 applications are. Zero-Knowledge applications differ from traditional applications. In traditional software,
 like in web or mobile applications, the application delivers its functionality by executing the set of
-insturctions, loops and conditions that are defined in its source code.
+instructions, loops and conditions that are defined in its source code.
 
 Zero-Knowledge applications are different. A Zero-Knowledge application does not does not deliver its end goal
-by executing a set of pre-determined instructions. Instead, the set of instructions that a Zero-Knowlede
+by executing a set of pre-determined instructions. Instead, the set of instructions that a Zero-Knowledge
 application executes, produce an assertion about the end goal.
 
 ## Zero-Knowledge Application vs Traditional Application
@@ -82,7 +82,7 @@ application executes, produce an assertion about the end goal.
    <img src="../../assets/blog/recursive-zksnarks-explained/zkLocus-6.png" alt="zkLocus mascot" style="max-width:100%; max-height:auto;border:none;">
 </div>
 
-Let's explore this with an example, by demonostrating how the same application can be implemented as a traditional
+Let's explore this with an example, by demonstrating how the same application can be implemented as a traditional
 application, and as a Zero-Knowledge application. Let's say that we want to implement an application that
 tells you current temperature in Celsius, in the city of Dublin, Ireland.
 
@@ -100,20 +100,20 @@ displayTemperature(temperature);
 ```
 
 This is an imperative approach that the majority of the software engineering community will be familiar with.
-The application's focus is to deliver the tempreature to the user in Dublin at the current time. As such, it focuses
+The application's focus is to deliver the temperature to the user in Dublin at the current time. As such, it focuses
 on obtaining that data and returning it to the end-user. There is an implicit assumption that the information that will
 be presented to the user is correct, and that all of the systems that are involved in the process delivering the end
 functionality are cooperative in nature. Sure, we may be using HTTPS/TLS to ensure that the data is not tampered by
-a third-party, but we are not commiting that that is the temperature that will be displayed to the user. We are assuming
+a third-party, but we are not committing that that is the temperature that will be displayed to the user. We are assuming
 that the code that will execute on the end-user's device will be the code that we have written. We also assume that at
 no point someone may tamper with the data that is displayed to the user. We are assuming that the temperature that will
-be displayed to the end user is infact the temperature that was returned by the API call, and that that temperature indeed
+be displayed to the end user is in fact the temperature that was returned by the API call, and that that temperature indeed
 represents the **real** temperature in Dublin at the current time, with all of the sources of that claim being open and
 verifiable.
 
-But Zero-Knowledge applications are different. In fact, Zero-Knowlede applications aren't even traditional
+But Zero-Knowledge applications are different. In fact, Zero-Knowledge applications aren't even traditional
 applications, in the sense that you are not abstracting the instructions for the processor to store,
-retrieve, and operate on data in physcial registers. A Zero-Knowlde application is an equation, a polynomial.
+retrieve, and operate on data in physical registers. A Zero-Knowledge application is an equation, a polynomial.
 Verifying a Zero-Knowledge proof, means satisfying the variables of a very complex polynomial.
 
 The end product of any Zero-Knowledge application is a circuit, which is a set of constraints that define a
@@ -128,9 +128,9 @@ as well as the source of all of the data. In other words, a Zero-Knowledge appli
 temperature in Dublin at current time, would focus on the following:
 
 1. Verifiably obtaining the current temperature in Dublin. This could mean using an Oracle, or another
-   Zero-Knowledge application veriably obtains the temperature in Dublin at the current time.
+   Zero-Knowledge application verifiably obtains the temperature in Dublin at the current time.
 2. Expose a a derivative of the fact. By derivative of the fact, I mean any information that derives from that
-   fact, and allows a third-party (the verifier) to extract useful information from that derivative in a cryptographically verifiable manner. For our example, this simply means exposing the temprature value.
+   fact, and allows a third-party (the verifier) to extract useful information from that derivative in a cryptographically verifiable manner. For our example, this simply means exposing the temperature value.
 
 As such, our Zero-Knowledge application will generate a proof, that returns a single value: the current
 temperature in Dublin. That value will be an integer (more precisely a _field_), and it will be the public
@@ -157,7 +157,7 @@ const temperatureWithLocationProof = await attachLocationToTemperature(
 
 // proof that the ZK Application will return
 const temperatureWithLocationAndTimeProof =
-  await attachTimeToTemperatureAndLocatio(
+  await attachTimeToTemperatureAndLocation(
     temperatureWithLocationProof,
     temperatureTimeProof
   );
@@ -177,7 +177,7 @@ and their sum was the output. If you design a Zero-Knowledge application that fe
 proof will attest to the fact that the temperature was fetched from a particular source, and that the temperature is the one
 that was claimed.
 
-Having this common ground of understanding, we are ready dive into the techncial details of zkSNARKs and recursive zkSNARKs.
+Having this common ground of understanding, we are ready dive into the technical details of zkSNARKs and recursive zkSNARKs.
 
 # Recursive zkSNARKs Explained
 
@@ -209,7 +209,7 @@ zkSNARKs also include efficient verification processes. These allow a verifier t
 
 zkSNARKs are particularly valued for their efficiency. They produce succinct proofs that are small in size and quick to verify, which is crucial for applications like blockchain, where speed and minimal data transmission are essential.
 
-Another important aspect of zkSNARKs is their non-interactive nature. The prover can generate proofs without any further interaction with the verifier. This means that the prover can generaet a proof without being in active interaction with the verifier. You can generate a proof fully offline, and then send it to the verifier later. This is advantageous in many scenarios, especially in decentralized systems.
+Another important aspect of zkSNARKs is their non-interactive nature. The prover can generate proofs without any further interaction with the verifier. This means that the prover can generate a proof without being in active interaction with the verifier. You can generate a proof fully offline, and then send it to the verifier later. This is advantageous in many scenarios, especially in decentralized systems.
 
 Now, armed with the knowledge of what zkSNARKs are, we can explain what recursive zkSNARKs are, how they work, how do they differ from zkSNARKs, and what computational paradigms they enable.
 
@@ -217,7 +217,7 @@ Now, armed with the knowledge of what zkSNARKs are, we can explain what recursiv
 
 Recursive zkSNARKs take the concept of zkSNARKs a step further. In recursive zkSNARKs, you can prove that you have a valid proof (or multiple proofs) of a statement, without actually knowing the original statement or the details of the proof itself. This is like proving that a chain of logic or a series of statements is correct, without needing to know all the details of each individual statement.
 
-This enables a myriad of use-cases that are infesable with regular zkSNARKs. Over the remainder of this blog post, we will continue
+This enables a myriad of use-cases that are infeasible with regular zkSNARKs. Over the remainder of this blog post, we will continue
 deepening our understanding of recursive zkSNARKs, and explore how they are used in Zero-Knowledge applications. In fact, very soon
 we will be writing our own Zero-Knowledge application using recursive zkSNARKs, and analyzing what exactly is visible to the verifier
 when a recursive proof is passed as a private input in a zkSNARKS circuit.
@@ -257,7 +257,7 @@ it using the code of a real Zero-Knowledge application.
 </div>
 
 As explained in detail above, recursive zkSNARKs are a powerful tool that enables the creation of Zero-Knowledge applications with complex
-assertions, while maintaing a compact size. They allow for the creation of zkSNARK proof that receive other
+assertions, while maintaining a compact size. They allow for the creation of zkSNARK proof that receive other
 zkSNARK proofs as private inputs. A zkSNARK that receives another zkSNARK as an input is able to verify that
 proof, and extract its public output. This means that a proof can be used as a building block for another proof,
 and that proof can be used as a building block for another proof, and so on. In this process, the full set of
@@ -275,13 +275,13 @@ interacts with another ZK application through one of the following means:
 
 ### Public Input and Private Input in zkSNARKs
 
-When developing Zero-Knowledge applpictions that leverage recursive zkSNARKs, one of the first questions that
+When developing Zero-Knowledge applications that leverage recursive zkSNARKs, one of the first questions that
 you may have is wether the recursive proofs are passed as private input, a public input, or either. In simple
 terms, **recursive zkSNARKs are always passed as a private input**. However, you can always turn your
 recursive zkSNARK into a public input, by exposing data in the public output of the proof that receives the
 recursive zkSNARK as a private input.
 
-It is important to note that wether the recursive zkSNARKs are passed as private or public inputs is implementation-dependent. This blog post focues on the way it is impelemented in O1JS, which is the Zero-Knowledge application framework for the Mina Blockchain. Given the convertibility of the
+It is important to note that wether the recursive zkSNARKs are passed as private or public inputs is implementation-dependent. This blog post focuses on the way it is implemented in O1JS, which is the Zero-Knowledge application framework for the Mina Blockchain. Given the convertibility of the
 private input into a public input described above, the implementation details have no relevancy to the
 information explored in this blog post, and the concepts explored here apply to any recursive zkSNARKs.
 
@@ -315,7 +315,7 @@ Implemented in `O1JS` using `TypeScript`, it will look like the following:
 
 ```typescript
 /*
- * This is an implementation of a calculator using recusrive zkSNARks.
+ * This is an implementation of a calculator using recursive zkSNARks.
  */
 import { Int64, ZkProgram, Struct } from "o1js";
 
@@ -397,7 +397,7 @@ export class RecursiveCalculatorCircuitProof extends ZkProgram.Proof(
 ) {}
 ```
 
-The code above defines two circuits, `BaseCalculatorCircuit` and `RecursiveCalculatorCircuit`. The first circuit, `BaseCalculatorCircuit` is a simple circuit that receives two numbers as public input, and outputs their sum. The second circuit, `RecursiveCalculatorCircuit` is a recursive circuit that receives a number as public input, and a proof of the execution of the first circuit as a private input. The second circuit verifies the proof, and outputs the sum of the number from the public input, and the sum of the two numbers from the public ouput of the proof received as a private input.
+The code above defines two circuits, `BaseCalculatorCircuit` and `RecursiveCalculatorCircuit`. The first circuit, `BaseCalculatorCircuit` is a simple circuit that receives two numbers as public input, and outputs their sum. The second circuit, `RecursiveCalculatorCircuit` is a recursive circuit that receives a number as public input, and a proof of the execution of the first circuit as a private input. The second circuit verifies the proof, and outputs the sum of the number from the public input, and the sum of the two numbers from the public output of the proof received as a private input.
 
 The code above also defines two proof types, `BaseCalculatorCircuitProof` and `RecursiveCalculatorCircuitProof`. These are the types of the proofs that are generated by the circuits. The `BaseCalculatorCircuitProof` is a proof of the execution of the `BaseCalculatorCircuit`, and the `RecursiveCalculatorCircuitProof` is a proof of the execution of the `RecursiveCalculatorCircuit`. These proof types will be used to verify the proofs, and extract the public output from them. This explicit definition is necessary due to the nature of Zero-Knowledge circuits: all of the data type types and sizes must be known and fixed.
 
@@ -472,30 +472,30 @@ node run build/src/Calculator.js
 
 #### Zero-Knowledge Execution Analysis
 
-The code above begins by compiling both of the cirucuits. This is necessary in order to generate the prover and the verification keys for the circuits. The prover key is used to generate the Zero-Knowldge proof, and the verification key are used to verify it. Each prover/verifier keypair is unique per a Zero-Knowledge circuit. The same circuit should always output the same verification key.
+The code above begins by compiling both of the circuits. This is necessary in order to generate the prover and the verification keys for the circuits. The prover key is used to generate the Zero-Knowledge proof, and the verification key are used to verify it. Each prover/verifier keypair is unique per a Zero-Knowledge circuit. The same circuit should always output the same verification key.
 
-The code procceds to create two proofs:
+The code proceeds to create two proofs:
 
 1. A proof for the base sum. This is a plain zkSNARK circuit. This proof is generated by the `BaseCalculatorCircuit`, and it receives two numbers as public input. The code creates a `NumbersToSum` object, and passes it to the `BaseCalculatorCircuit.add()` method. The method returns a `BaseCalculatorCircuitProof` object, which is the proof of the execution of the `BaseCalculatorCircuit`. The code then verifies the proof, and extracts the public output from it. The public output is the sum of the two numbers from the `NumbersToSum` object.
 
 2. A recursive sum proof. This is a recursive zkSNARK circuit. This proof is generated by the `RecursiveCalculatorCircuit`, and it receives a number as public input, and a proof of the execution of the `BaseCalculatorCircuit` as a private input. The code creates a `RecursiveCalculatorCircuitProof` proof, and passes it to the `RecursiveCalculatorCircuit.add()` method. The method returns a `RecursiveCalculatorCircuitProof` object, which is the proof of the execution of the `RecursiveCalculatorCircuit`. The code then verifies the proof, and extracts the public output from it. The public output is the sum of the number from the public input, and the sum of the two numbers from the `BaseCalculatorCircuitProof` object.
 
-### Assertions Offered By zkSNARSs and Recursive zkSNARKs
+### Assertions Offered By zkSNARKs and Recursive zkSNARKs
 
 <div style="text-align:center; max-width:97%;">
    <img src="../../assets/blog/recursive-zksnarks-explained/zkLocus-4.png" alt="zkLocus mascot" style="max-width:100%; max-height:auto;border:none;">
 </div>
 
 In order to design and develop sound Zero-Knowledge applications, it is necessary to understand the assertions
-that are offered by each part of the aplication, as well as when several assertions are combined together using
+that are offered by each part of the application, as well as when several assertions are combined together using
 recursive zkSNARKs.
 
-As such, let's analyze what eactly is asserted by each of the proofs generated by the corresponding circuits:
+As such, let's analyze what exactly is asserted by each of the proofs generated by the corresponding circuits:
 
 1. The `BaseCalculatorCircuitProof` asserts that the sum of two numbers, `A` and `B` is `C`. Since `A` and `B`
    are **public inputs**, and `C` is a **public output**, all of the data related to the sum is exposed in the proof.
-   The verifier know exacly which numbers `A` and `B` where used in the sum, and that the result of their sum is `C`.
-   The design of the circuit gurantees that `C` is the result of performing an arithmetic addition operation on `A` and `B`. If `C` is not the result of adding `A` and `B`, then the proof verification will fail.
+   The verifier know exactly which numbers `A` and `B` where used in the sum, and that the result of their sum is `C`.
+   The design of the circuit guarantees that `C` is the result of performing an arithmetic addition operation on `A` and `B`. If `C` is not the result of adding `A` and `B`, then the proof verification will fail.
 
 2. The `RecursiveCalculatorCircuitProof` asserts that it has received a `BaseCalculatorCircuitProof` and that proof was valid.
    It then asserts that it extracted the sum from the public output of the proof, added it to the number that it received as
@@ -503,7 +503,7 @@ As such, let's analyze what eactly is asserted by each of the proofs generated b
 
 ### Recursive zkSNARKs: What Is Visible To The Verifier?
 
-When desigining Zero-Knowledge applications, it is important to understand what exactly is visible to the verifier, as a
+When designing Zero-Knowledge applications, it is important to understand what exactly is visible to the verifier, as a
 mistake in a single exposed value can either lead to the complete compromise of the facts (secrets) that the Zero-Knowledge application is supposed to hide, or create a Zero-Knowledge proof that proves nothing.
 
 Let's begin by analyzing what information is exposed in the `BaseCalculatorCircuitProof` proof. The `BaseCalculatorCircuitProof` proof is generated by the `BaseCalculatorCircuit` circuit. The `BaseCalculatorCircuit` circuit receives two numbers as public input, and outputs their sum. As such, the `BaseCalculatorCircuitProof` proof exposes the following information:
@@ -511,7 +511,7 @@ Let's begin by analyzing what information is exposed in the `BaseCalculatorCircu
 - The two numbers that were used as public input to the `BaseCalculatorCircuit` circuit.
 - The sum of the two numbers that were used as public input to the `BaseCalculatorCircuit` circuit.
 
-The siutation is not so clear when `BaseCalculatorCircuitProof` proof is passed as a private input to the `RecursiveCalculatorCircuit.add()` method? What exactly does the verifier see in the `RecursiveCalculatorCircuit.add()` method? Can the verifier extract the public input to the `BaseCalculatorCircuitProof` proof that was provided to it as a private input? Or is it only able to see the public output of the `BaseCalculatorCircuitProof`?
+The situation is not so clear when `BaseCalculatorCircuitProof` proof is passed as a private input to the `RecursiveCalculatorCircuit.add()` method? What exactly does the verifier see in the `RecursiveCalculatorCircuit.add()` method? Can the verifier extract the public input to the `BaseCalculatorCircuitProof` proof that was provided to it as a private input? Or is it only able to see the public output of the `BaseCalculatorCircuitProof`?
 
 It's important to note that the entity executing `RecursiveCalculatorCircuit.add()` is both the prover and the verifier, because they are
 verifying a zkSNARK proof that was passed to it as a private input, and the prover, because they are generating a zkSNARK proof
@@ -525,33 +525,33 @@ Before you proceed further, take a moment to think about this. What do you think
    <img src="../../assets/blog/recursive-zksnarks-explained/zkLocus-11.png" alt="zkLocus mascot" style="max-width:100%; max-height:auto;border:none;">
 </div>
 
-In order to answer the questions above it is important to understad how exactly recursive zkSNARKs are implemented in terms
-of the Zero-Knowledge circuit construction that enables them. Afterall, recursive zkSNARKs are implemented using "regular" zkSNARKs.
+In order to answer the questions above it is important to understand how exactly recursive zkSNARKs are implemented in terms
+of the Zero-Knowledge circuit construction that enables them. After all, recursive zkSNARKs are implemented using "regular" zkSNARKs.
 
-While recursive zkSNAKRs can be implemented in various manners, there are common design guidelines that most implementation
+While recursive zkSNARKs can be implemented in various manners, there are common design guidelines that most implementation
 follow for technical reasons. One of such reasons is the succinctness of the proofs, as the end goal is to have proof verification time constant. As such, I will describe the implementation of recursive zkSNARKs in `O1JS`. It's an
 also implementation that many other Zero-Knowledge application frameworks mirror.
 
 ### Recursive zkSNARKs in O1S
 
-In `O1JS`, when a proof `P` is passed as a private input into a circuit `C`, the pubilc inputs of `P` are passed as private
+In `O1JS`, when a proof `P` is passed as a private input into a circuit `C`, the public inputs of `P` are passed as private
 inputs into `C`, and the hash of those private inputs is passed into `C` as a public input. Additionally, `C` verifies if
 the hash of the private inputs matches the hash passed in the public output, thus creating a commitment to the public
 inputs of `P`. In practice, this makes the public inputs of `P` semi-private inputs in `C`, as they are passed as private
 inputs, but their hash is passed as a public input.
 
 Creating a commitment to the public of inputs of `P`, ensures that the proof produced by `C` creates a cryptographic
-commitment to the execution of `P` with particular public inputs. Thus, any external party can verify **which pubilc inputs were used to produce the proof P, without revealing the pubilc inputs themselves, and keeping the proof size succint**.
+commitment to the execution of `P` with particular public inputs. Thus, any external party can verify **which public inputs were used to produce the proof P, without revealing the public inputs themselves, and keeping the proof size succinct**.
 
 In order to verify `P` inside of circuit `C`, it is necessary for `C` to know the verification key of `P`, and use that verification key `K` to verify `P`. If `C` uses any verification key other than `K` to verify `P`, the verification will fail.
 Verification key `K` can only verify `P`, and `P` can only be verified by verification key `K`. When `C` successfully
-verifies `P` with `K`, it creates a cryptographic commitment to `K` in the proof that it itself produces. Since for each `K` there is only one `P` and vice versa, this means that `C` creates a cryptographic commitment to `P` in the proof that it itself produces. This means that the proof produced by `C` can only be verified by `K`, and that `K` can only be used to verify the proof produced by `C`. Thus, any external party can verify **which circuit exacly was used to produce the proof P**. If the thrid party is provided with the implementation code of a circuit, they will be able to verify wether `P` was produced by that circuit.
+verifies `P` with `K`, it creates a cryptographic commitment to `K` in the proof that it itself produces. Since for each `K` there is only one `P` and vice versa, this means that `C` creates a cryptographic commitment to `P` in the proof that it itself produces. This means that the proof produced by `C` can only be verified by `K`, and that `K` can only be used to verify the proof produced by `C`. Thus, any external party can verify **which circuit exactly was used to produce the proof P**. If the third party is provided with the implementation code of a circuit, they will be able to verify wether `P` was produced by that circuit.
 
 As such, the verifier can ascertain the use of a specific verification key and thus, by extension, which circuit was employed to generate a recursive proof. However, they remain unaware of the specific recursive proof used unless the circuit logic is designed to reveal this.
 
-### Recursive zkSNARKs in O1JS Examplified
+### Recursive zkSNARKs in O1JS Exemplified
 
-Let's consolidate our understnading with a more generic example. Assume we have two zkSNARKs proofs with the following attributes:
+Let's consolidate our understanding with a more generic example. Assume we have two zkSNARKs proofs with the following attributes:
 
 1. Proof `P`, created by circuit `Cp` has public inputs `A` and `B`, and public output `C`.
 2. Proof `Q`, created by circuit `Cq`` has `P` as a private input.
@@ -559,11 +559,11 @@ Let's consolidate our understnading with a more generic example. Assume we have 
 When `P`is passed as a private input into `Cq`, the following occurs at zkSNARKs circuit level:
 
 1. The public inputs of `P` are passed as private inputs into `Q`
-2. The hash of the pubilc inputs of `P` is passed into `Q` as a public input
+2. The hash of the public inputs of `P` is passed into `Q` as a public input
 
-When verifying `P`, `Cq` has the following assertios about `P`:
+When verifying `P`, `Cq` has the following assertions about `P`:
 
-1. If `Cq` is provided with the the pubilc inputs used in `Cp` to generate `P`, it can confirm or deny wether those public inputs were used to generate `P`.
+1. If `Cq` is provided with the the public inputs used in `Cp` to generate `P`, it can confirm or deny wether those public inputs were used to generate `P`.
 2. `Cq` knows precisely which circuit was used to generate `P`. If `P` is an output of a recursive zkSNARKs, then `Cq` knows all circuits that were involved in the generation of `P`, no matter how many of them there are. This is the power of succinctness! By extension, if `Cq` is provided with the implementation code of `Cp`, it can confirm or deny wether `P` was generated by `Cp`. The same applies to any other circuit that was involved in the generation of `P`.
 
 ### Recursive zkSNARKs Are Semi-Private Inputs
@@ -579,12 +579,12 @@ Given that unless provided with the public inputs explicitly, **the verifier can
 
 Returning back to our example, let's analyze what exactly is visible to the verifier in the `RecursiveCalculatorCircuit.add()` method when verifying the `BaseCalculatorCircuitProof` proof.
 
-The `RecursiveCalculatorCircuitProof` proof is generated by the `RecursiveCalculatorCircuit` circuit. The `RecursiveCalculatorCircuit` circuit receives a number as public input, and a proof of the execution of the `BaseCalculatorCircuit` as a private input. As such, the `BaseCalcuclatorCircuitProof` proof exposes the following information to the verifer:
+The `RecursiveCalculatorCircuitProof` proof is generated by the `RecursiveCalculatorCircuit` circuit. The `RecursiveCalculatorCircuit` circuit receives a number as public input, and a proof of the execution of the `BaseCalculatorCircuit` as a private input. As such, the `BaseCalculatorCircuitProof` proof exposes the following information to the verifier:
 
 - The sum of the two numbers that were used as public input to the `BaseCalculatorCircuit` circuit, when generating the `BaseCalculatorCircuitProof` proof.
 - The source code of the `BaseCalculatorCircuit`, as it it necessary to use the verification key of the `BaseCalculatorCircuit` to verify the `BaseCalculatorCircuitProof` proof.
 
-Given this, `RecursiveCalculcatorCircuitProof` has zero-knowledge commitments to the following:
+Given this, `RecursiveCalculatorCircuitProof` has zero-knowledge commitments to the following:
 
 - The sum of the two numbers that were used as public input to the `BaseCalculatorCircuit` circuit, when generating the `BaseCalculatorCircuitProof` proof.
 - The source code of the `BaseCalculatorCircuit`, as it it necessary to use the verification key of the `BaseCalculatorCircuit` to verify the `BaseCalculatorCircuitProof` proof.
@@ -623,9 +623,9 @@ zkLocus is fundamentally built on recursive zkSNARKs, enabling a range of powerf
 Now, let's examine how recursive zkSNARKs are utilized in zkLocus for one of its core features: sharing your location with
 a third-party, without revealing your exact location. For this, we are going to use zkLocus to prove that a certain GeoPoint (geographical coordinate) is within a Polygon (geographical area) at a specific time (timestamp or timestamp interval), without disclosing the exact geographical coordinates or the precise time. This is achieved through a series of steps involving the creation and combination of proofs, as well as the attachment of timestamps to these proofs. Let's delve into the details of this process, referencing specific code examples from the zkLocus codebase.
 
-1. **Creating a GeoPoint Proof**: Initially, a proof is created to attest to the validity of a geographical point. This proof is essential as it forms the basis of subsequent steps in the zkLocus process. The GeoPoint itself is the public output of a Zero-Knowledge proof, and that proof is passed as a private intput to the circuit verifying if that point is within a polygon.
+1. **Creating a GeoPoint Proof**: Initially, a proof is created to attest to the validity of a geographical point. This proof is essential as it forms the basis of subsequent steps in the zkLocus process. The GeoPoint itself is the public output of a Zero-Knowledge proof, and that proof is passed as a private input to the circuit verifying if that point is within a polygon.
 
-The simplest possible implementation, which simply returns the GeoPoint that was passed to it as a public intput is as follows:
+The simplest possible implementation, which simply returns the GeoPoint that was passed to it as a public input is as follows:
 
 ```typescript
 GeoPointProviderCircuit = ZkProgram({
@@ -653,17 +653,17 @@ In a practical sense, this same approach is used by all applications that rely o
    }
    ```
 
-4. **Timestamp Attachment**: zkLocus also allows for the creation of a proof attesting to the validity of a timestamp interval. This is achieved through the `TimeStampIntervalProviderCircuit`, which outputs a `TimeStampInterval`. The `TimeStampInterval` itself is the public output of a Zero-Knowledge proof, and that proof is passed as a private input to the circuit verifying if that timestamp interval is valid.
+4. **Timestamp Attachment**: zkLocus also allows for the creation of a proof attesting to the validity of a timestamp interval. This is achieved through the `TimestampIntervalProviderCircuit`, which outputs a `TimestampInterval`. The `TimestampInterval` itself is the public output of a Zero-Knowledge proof, and that proof is passed as a private input to the circuit verifying if that timestamp interval is valid.
 
-The simplest possible implementation, which simply returns the GeoPoint that was passed to it as a public intput is as follows:
+The simplest possible implementation, which simply returns the GeoPoint that was passed to it as a public input is as follows:
 
 ```typescript
-TimeStampIntervalProviderCircuit = ZkProgram({
+TimestampIntervalProviderCircuit = ZkProgram({
   name: "Timestamp Interval Provider Circuit",
-  publicOutput: TimeStampInterval,
+  publicOutput: TimestampInterval,
   methods: {
     fromLiteral: {
-      privateInputs: [TimeStampInterval],
+      privateInputs: [TimestampInterval],
       method: timeStampIntervalFromLiteral,
     },
   },
@@ -672,34 +672,34 @@ TimeStampIntervalProviderCircuit = ZkProgram({
 
 In a practical sense, this same approach is used by all applications that rely on the user for providing their geographical coordinates timestamp.
 
-5. **Combining GeoPoint and Timestamp Proofs**: Finally, the timestamp proof is attached to the GeoPoint in Polygon proof. This is done by the `GeoPointWithTimestampInPolygonCircuit`, which adds the timestamp to the public output of the GeoPoint in Polygon proof, effectively "attaching" the timestamp data to the original proof. The `proofAttachProvidedTimestampinterval` method performs this functionality.
+5. **Combining GeoPoint and Timestamp Proofs**: Finally, the timestamp proof is attached to the GeoPoint in Polygon proof. This is done by the `GeoPointWithTimestampInPolygonCircuit`, which adds the timestamp to the public output of the GeoPoint in Polygon proof, effectively "attaching" the timestamp data to the original proof. The `proofAttachProvidedTimestampInterval` method performs this functionality.
 
 ```typescript
 GeoPointWithTimestampInPolygonCircuit = ZkProgram({
   name: "GeoPoint With Timestamp In Polygon Circuit",
-  publicOutput: GeoPointWithTimeStampIntervalInPolygonCommitment,
+  publicOutput: GeoPointWithTimestampIntervalInPolygonCommitment,
   methods: {
-    proofAttachProvidedTimestampinterval: {
+    proofAttachProvidedTimestampInterval: {
       privateInputs: [
         GeoPointInPolygonCircuitProof,
-        TimeStampIntervalProviderCircuitProof,
+        TimestampIntervalProviderCircuitProof,
       ],
-      method: proofAttachSourcedTimestampinterval,
+      method: proofAttachSourcedTimestampInterval,
     },
   },
 });
 ```
 
-The returned `GeoPointWithTimeStampIntervalInPolygonCommitment` asserts both: the source of the timestamp, and that timestamp is related to the geographical point measurment in question.
+The returned `GeoPointWithTimestampIntervalInPolygonCommitment` asserts both: the source of the timestamp, and that timestamp is related to the geographical point measurement in question.
 
-Here, zkLocus uses recursive zkSNARKs to expand the the knoweldge asserted by the proof. In this case, we are expanding the
+Here, zkLocus uses recursive zkSNARKs to expand the the knowledge asserted by the proof. In this case, we are expanding the
 existing geolocation proof with timestamp data.
 
 #### Additional Assertions
 
 The code examples above have been simplified for the sake of clarity. Additional assertions, such as ensuring that the timestamp is indeed related to the location proof are desirable. In practice, this either means an intermediate
 Zero-Knowledge circuit that verifies the relationship between the timestamp and the location, or a
-`TimeStampIntervalProviderCircuit` implementation that embeds the location data in the proof.
+`TimestampIntervalProviderCircuit` implementation that embeds the location data in the proof.
 
 ## Significance of Recursive zkSNARKs in zkLocus
 
