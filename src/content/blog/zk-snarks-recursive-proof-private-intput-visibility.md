@@ -104,10 +104,10 @@ The application's focus is to deliver the temperature to the user in Dublin at t
 on obtaining that data and returning it to the end-user. There is an implicit assumption that the information that will
 be presented to the user is correct, and that all of the systems that are involved in the process delivering the end
 functionality are cooperative in nature. Sure, we may be using HTTPS/TLS to ensure that the data is not tampered by
-a third-party, but we are not committing that that is the temperature that will be displayed to the user. We are assuming
+a third-party, but we are not committing to the temperature being the same value displayed to the user. We are assuming
 that the code that will execute on the end-user's device will be the code that we have written. We also assume that at
 no point someone may tamper with the data that is displayed to the user. We are assuming that the temperature that will
-be displayed to the end user is in fact the temperature that was returned by the API call, and that that temperature indeed
+be displayed to the end user is in fact the temperature that was returned by the API call, and that the temperature indeed
 represents the **real** temperature in Dublin at the current time, with all of the sources of that claim being open and
 verifiable.
 
@@ -139,7 +139,7 @@ output of our Zero-Knowledge application/circuit. Even though our ZK application
 1. The source of the temperature. This means that the proof demonstrates exactly where the temperature value
    has been obtained from. Was it obtained by an HTTP request to an Oracle? Was it read direly from a hardware sensor?
 2. A guarantee that the obtained value refers to the temperature in Dublin at the current time. This means that
-   the proof embeds assertions not only about the freshness of the temperature value, but also that that value
+   the proof embeds assertions not only about the freshness of the temperature value, but also that the aforementioned value
    is tied to a particular instant in time. The source of that time instant, as well as its correlation to the
    temperature reading must also be cryptographically asserted in that proof.
 
